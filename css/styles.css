@@ -1,0 +1,162 @@
+/*sidebar css*/
+html,
+body {
+  height: 100%;
+}
+body {
+  padding-top: 50px;
+  /*padding for navbar*/
+
+}
+.navbar-brand {
+  float: left;
+}
+.navbar-custom,
+.dropdown-menu > li > a {
+  background-color: #262626;
+  color: #fff;
+}
+.navbar-custom a,
+.dropdown-menu > li > a a {
+  color: #fefefe;
+}
+.navbar-custom .icon-bar,
+.dropdown-menu > li > a .icon-bar {
+  background-color: #fff;
+}
+.navbar-custom ul,
+.dropdown-menu > li > a ul {
+  margin: 0;
+  padding: 0;
+  float: right;
+  list-style-type: none;
+}
+.navbar-custom li,
+.dropdown-menu > li > a li {
+  float: left;
+}
+.navbar-custom a,
+.dropdown-menu > li > a a {
+  display: block;
+  margin-right: 30px;
+  text-decoration: none;
+  text-align: center;
+}
+.navbar-custom li > a:hover,
+.dropdown-menu > li > a li > a:hover,
+.navbar-custom .navbar-custom li > a:focus,
+.dropdown-menu > li > a .navbar-custom li > a:focus {
+  color: #4d4d4d;
+}
+video {
+  width: 100%;
+}
+#main {
+  height: 100%;
+  width: 100%;
+}
+#main > .row {
+  height: 100%;
+  overflow-y: scroll;
+}
+#left {
+  height: 100%;
+}
+#map-canvas {
+  width: 100%;
+  height: calc(100%);
+  position: absolute;
+  /* right:16px; */
+
+  top: 50px;
+  bottom: 0;
+  overflow: hidden;
+}
+/*sidebar css*/
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#main {
+  padding-right: 33.3333%;
+  transition: all .4s ease 0s;
+  height: 100%;
+  width: 100%;
+}
+#main > .row {
+  height: 100%;
+  overflow-y: scroll;
+}
+#main .glyphicon-triangle-left {
+  display: none;
+}
+#sidebar-wrapper {
+  margin-right: 0;
+  right: 0;
+  width: 33.3333%;
+  background: #222;
+  position: fixed;
+  height: 100%;
+  z-index: 10000;
+  transition: all .4s ease 0s;
+  display: inline-block;
+}
+#page-content-wrapper {
+  padding-left: 0;
+  margin-left: 0;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+#main.active {
+  padding-right: 80px;
+}
+#main.active .glyphicon-triangle-right {
+  display: none;
+}
+#main.active .glyphicon-triangle-left {
+  display: inline-block;
+}
+#main.active .glyphicon-triangle-left a:hover,
+a:link {
+  text-decoration: none;
+}
+#main.active #sidebar-wrapper {
+  right: 8px;
+  margin-right: -475px;
+}
+.sidebar-bottom {
+  position: absolute;
+  bottom: 0;
+}
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+/*info window styles*/
+.gm-style img {
+  max-width: 450px;
+}
+@media (max-width: 767px) {
+  #wrapper {
+    padding-right: 70px;
+    transition: all .4s ease 0s;
+  }
+  #sidebar-wrapper {
+    right: 70px;
+  }
+  #wrapper.active {
+    padding-right: 150px;
+  }
+  #wrapper.active #sidebar-wrapper {
+    right: 150px;
+    width: 150px;
+    transition: all .4s ease 0s;
+  }
+}
