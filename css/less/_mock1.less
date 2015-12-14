@@ -10,16 +10,17 @@ body{
     float:left;
     }
 
-
-.navbar-custom, .dropdown-menu>li>a{
+.navbar-custom {
 	background-color: #262626;
-    color:#fff;
-    a{
     color:#fefefe;
-}
-    .icon-bar {
-    background-color:#fff;
-}
+
+a {
+    color:#fefefe;
+    display: block;
+    margin-right: 30px;
+    text-decoration: none;
+    text-align: center;
+    }
 
 ul{
     margin: 0;
@@ -32,15 +33,23 @@ li{
     float: left;
 }
 
-a{
-    display: block;
-    margin-right: 30px;
-    text-decoration: none;
-    text-align: center;
+li>a:hover,.navbar-custom li>a:focus {
+    color:#262626;
 }
 
-li>a:hover,.navbar-custom li>a:focus {
-    color:#4d4d4d;
+li>a:active {
+    background: #fefefe;
+    color: red;
+}
+
+
+.dropdown-menu {
+    border: none;
+}
+
+.dropdown-menu>li>a {
+    color: #262626;
+    background-color: #fff;
 }
 
 }
@@ -81,7 +90,7 @@ video {
 }
 
 #main {
-    padding-right: 33.3333%;
+   /* padding-right: 33.3333%; */
     transition: all .4s ease 0s;
     height: 100%;
     width: 100%;
@@ -102,7 +111,7 @@ video {
     background: #222;
     position: fixed;
     height: 100%;
-    z-index: 10000;
+    z-index: 1000;
     transition: all .4s ease 0s;
     display: inline-block;
 }
@@ -111,13 +120,13 @@ video {
 #page-content-wrapper {
     padding-left: 0;
     margin-left: 0;
-    width: 100%;
+    width: 65.6666%;
     height: auto;
     display: inline-block;
 }
 
 #main.active {
-   padding-right: 80px;
+  /* padding-right: 80px; */
 }
 
 #main.active .glyphicon-triangle-right{
@@ -132,9 +141,14 @@ video {
     text-decoration: none;
 }
 
+#main.active #page-content-wrapper{
+    width: 90%;
+}
+
 #main.active #sidebar-wrapper {
     right: 8px;
-    margin-right: -475px;
+   /* margin-right: -500px; */
+   width: 10%;
 }
 
 

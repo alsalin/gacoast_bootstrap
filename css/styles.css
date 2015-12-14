@@ -11,42 +11,40 @@ body {
 .navbar-brand {
   float: left;
 }
-.navbar-custom,
-.dropdown-menu > li > a {
+.navbar-custom {
   background-color: #262626;
-  color: #fff;
-}
-.navbar-custom a,
-.dropdown-menu > li > a a {
   color: #fefefe;
 }
-.navbar-custom .icon-bar,
-.dropdown-menu > li > a .icon-bar {
-  background-color: #fff;
-}
-.navbar-custom ul,
-.dropdown-menu > li > a ul {
-  margin: 0;
-  padding: 0;
-  float: right;
-  list-style-type: none;
-}
-.navbar-custom li,
-.dropdown-menu > li > a li {
-  float: left;
-}
-.navbar-custom a,
-.dropdown-menu > li > a a {
+.navbar-custom a {
+  color: #fefefe;
   display: block;
   margin-right: 30px;
   text-decoration: none;
   text-align: center;
 }
+.navbar-custom ul {
+  margin: 0;
+  padding: 0;
+  float: right;
+  list-style-type: none;
+}
+.navbar-custom li {
+  float: left;
+}
 .navbar-custom li > a:hover,
-.dropdown-menu > li > a li > a:hover,
-.navbar-custom .navbar-custom li > a:focus,
-.dropdown-menu > li > a .navbar-custom li > a:focus {
-  color: #4d4d4d;
+.navbar-custom .navbar-custom li > a:focus {
+  color: #262626;
+}
+.navbar-custom li > a:active {
+  background: #fefefe;
+  color: red;
+}
+.navbar-custom .dropdown-menu {
+  border: none;
+}
+.navbar-custom .dropdown-menu > li > a {
+  color: #262626;
+  background-color: #fff;
 }
 video {
   width: 100%;
@@ -78,7 +76,8 @@ video {
   margin-right: 0px;
 }
 #main {
-  padding-right: 33.3333%;
+  /* padding-right: 33.3333%; */
+
   transition: all .4s ease 0s;
   height: 100%;
   width: 100%;
@@ -97,19 +96,20 @@ video {
   background: #222;
   position: fixed;
   height: 100%;
-  z-index: 10000;
+  z-index: 1000;
   transition: all .4s ease 0s;
   display: inline-block;
 }
 #page-content-wrapper {
   padding-left: 0;
   margin-left: 0;
-  width: 100%;
+  width: 65.6666%;
   height: auto;
   display: inline-block;
 }
 #main.active {
-  padding-right: 80px;
+  /* padding-right: 80px; */
+
 }
 #main.active .glyphicon-triangle-right {
   display: none;
@@ -121,9 +121,14 @@ video {
 a:link {
   text-decoration: none;
 }
+#main.active #page-content-wrapper {
+  width: 90%;
+}
 #main.active #sidebar-wrapper {
   right: 8px;
-  margin-right: -475px;
+  /* margin-right: -500px; */
+
+  width: 10%;
 }
 .sidebar-bottom {
   position: absolute;
