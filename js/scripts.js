@@ -21,13 +21,10 @@ var contentString1 = '<div id="content">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">Black Hammock Flyover</h1>'+
       '<div id="bodyContent">'+
-      '<p><a href=#>About St. Catherines Island</a></p>'+
+      '<p><a href="st_catherines.html">About St. Catherines Island</a></p>'+
       '<p><a href="https://southernspaces.org/2015/st-catherines-island-flyover" target="_new">St. Catherines Flyover</a> from <em>Southern Spaces</em></p>'+
       '</div>'+
       '</div>';
-
-
-
 
 var contentString2 = '<div id="content">'+
       '<div id="siteNotice">'+
@@ -38,7 +35,6 @@ var contentString2 = '<div id="content">'+
       '</div>'+
       '</div>';
 
-
   var infowindow1 = new google.maps.InfoWindow({
     content: contentString1
   });
@@ -46,7 +42,6 @@ var contentString2 = '<div id="content">'+
  var infowindow2 = new google.maps.InfoWindow({
     content: contentString2
   });
-
 
   var marker_one = new google.maps.Marker({
     position: new google.maps.LatLng(31.660839, -81.136015),
@@ -71,7 +66,7 @@ var contentString2 = '<div id="content">'+
   });
 
 
-
 };
+
 /* end google maps -----------------------------------------------------*/
 });

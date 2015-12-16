@@ -32,12 +32,12 @@ body {
   float: left;
 }
 .navbar-custom li > a:hover,
-.navbar-custom .navbar-custom li > a:focus {
+.navbar-custom li > a:focus {
   color: #262626;
 }
 .navbar-custom li > a:active {
   background: #fefefe;
-  color: red;
+  color: #262626;
 }
 .navbar-custom .dropdown-menu {
   border: none;
@@ -48,6 +48,11 @@ body {
 }
 video {
   width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  text-align: center;
 }
 #main {
   height: 100%;
@@ -89,6 +94,11 @@ video {
 #main .glyphicon-triangle-left {
   display: none;
 }
+#main .glyphicon-triangle-right {
+  position: absolute;
+  right: 100%;
+  padding-right: 0;
+}
 #sidebar-wrapper {
   margin-right: 0;
   right: 0;
@@ -106,6 +116,7 @@ video {
   width: 65.6666%;
   height: auto;
   display: inline-block;
+  transition: all .4s ease 0s;
 }
 #main.active {
   /* padding-right: 80px; */
@@ -116,19 +127,22 @@ video {
 }
 #main.active .glyphicon-triangle-left {
   display: inline-block;
+  position: absolute;
+  right: 100%;
+  padding-right: 0;
 }
 #main.active .glyphicon-triangle-left a:hover,
 a:link {
   text-decoration: none;
 }
 #main.active #page-content-wrapper {
-  width: 90%;
+  width: 95%;
 }
 #main.active #sidebar-wrapper {
-  right: 8px;
+  right: 0;
   /* margin-right: -500px; */
 
-  width: 10%;
+  width: 5%;
 }
 .sidebar-bottom {
   position: absolute;
