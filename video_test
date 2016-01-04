@@ -1,0 +1,294 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Timeline Interaction</title>
+    <script type="text/javascript" src="http://jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false&v=3.17" type="text/javascript"></script>
+    <style style="text/css">
+	html, body, div, span, object, iframe, h2, h3, p, a, img, strong, ul, li,{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-weight: inherit;
+		font-style: inherit;
+		font-family: inherit;
+		vertical-align: baseline;
+	}
+	:focus {
+		outline: 0;
+	}
+	body {
+		color: black;
+	}
+	ul {
+		list-style: none;
+	}
+	body {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 62.5%;
+	}
+	.DemoWidget {
+		height: 200px;
+		width: 240px;
+		margin: 0 0 20px 0;
+		background: #fff;
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);
+		color: #000;
+		position: relative;
+	}
+	}
+	.Loading {
+		height: 265px; width: 220px;
+		position: absolute;
+		left: 0px; top: 0px;
+		z-index: 100;
+	}
+      body { 
+        width: 960px;
+        margin-top: 10px;
+		margin-left: 10px;
+        position: relative;
+      }
+      #container { 
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        background: #222;
+      }
+	  #map {
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);
+		position: absolute; 
+		width:390px;
+		height:550px;
+		left: 570px;
+		top: 0;
+	  }
+      
+	  #statue, #central, #wtc, #rock, #times, #ch {
+		display: none;
+	  }
+    </style>
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-42148455-1', 'jwplayer.com');
+	ga('send', 'pageview');
+	</script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+
+jwplayer("container").setup({
+    file: "St_Catherines_drone.mp4",
+    image: 'coast.png',
+    width: 550,
+    height: 310,
+	primary: 'html5',
+	tracks: [{
+		file:'chapters.vtt',
+		kind:'chapters'
+	}]
+});
+jwplayer().onReady(function(event) {
+  if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
+	document.getElementById('map').style.display = 'none';
+  }
+});
+var theStatue = false;
+var thePark = false;
+var theWtc = false;
+var theRock = false;
+var theTimes = false;
+var theCh = false;
+var theStatue2 = false;
+var thePark2 = false;
+var theWtc2 = false;
+var theRock2 = false;
+var theTimes2 = false;
+var theCh2 = false;
+
+jwplayer().onComplete(function(){
+	map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(31.624625, -81.160325),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+	infowindow = new google.maps.InfoWindow();
+    marker, i;
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+		  if(locations[i][0] == "Test 1"){
+			jwplayer().seek(25);
+		  }
+		  if(locations[i][0] == "Test 2"){
+			jwplayer().seek(36);
+		  }
+		  if(locations[i][0] == "Test 3"){
+			jwplayer().seek(53);
+		  }
+		  if(locations[i][0] == "Test 4"){
+			jwplayer().seek(82);
+		  }
+		  if(locations[i][0] == "Test 5"){
+			jwplayer().seek(126);
+		  }
+		  if(locations[i][0] == "Test 6"){
+			jwplayer().seek(163);
+		  }
+        }
+      })(marker, i));
+    }
+});
+</script>
+
+<div id="map"></div>
+<script type="text/javascript">
+    var locations = [
+      ['Test 1', 31.660839, -81.136015, 6],
+      ['Test 2', 31.584423, -81.146255, 5],
+      ['Test 3', 31.640699, -81.166613, 4],
+      ['Test 4', 31.691502, -81.146975, 3],
+      ['Test 5', 31.575341, -81.183667, 2],
+	  ['Test 6', 31.631679, -81.131213, 1]
+    ];
+	var statue = new google.maps.Marker({position: new google.maps.LatLng(31.660839, -81.136015),map: map});
+	var central = new google.maps.Marker({position: new google.maps.LatLng(31.584423, -81.146255),map: map});
+	var world = new google.maps.Marker({position: new google.maps.LatLng(31.640699, -81.166613),map: map});
+	var rock = new google.maps.Marker({position: new google.maps.LatLng(31.691502, -81.146975),map: map});
+	var times = new google.maps.Marker({position: new google.maps.LatLng(31.575341, -81.183667),map: map});
+	var ch = new google.maps.Marker({position: new google.maps.LatLng(31.631679, -81.131213),map: map});
+	jwplayer().onTime(function(event){
+		if (event.position >= 25 && event.position < 35 && theStatue2 == false) {
+			infowindow.setContent(locations[0][0]);
+			infowindow.open(map,statue);
+			map.setZoom(15);
+			map.setCenter(new google.maps.LatLng(31.660839, -81.136015));
+			theStatue2 = true;
+			thePark2 = false;
+			theWtc2 = false;
+			theRock2 = false;
+			theTimes2 = false;
+			theCh2 = false;
+		}
+		if (event.position >= 36 && event.position < 52 && thePark2 == false) {
+			infowindow.setContent(locations[1][0]);
+			infowindow.open(map,central);
+			map.setZoom(15);
+			map.setCenter(new google.maps.LatLng(31.584423, -81.146255));
+			theStatue2 = false;
+			thePark2 = true;
+			theWtc2 = false;
+			theRock2 = false;
+			theTimes2 = false;
+			theCh2 = false;
+		}
+		if (event.position >= 53 && event.position < 81 && theWtc2 == false) {
+			infowindow.setContent(locations[2][0]);
+			infowindow.open(map,world);
+			map.setZoom(15);
+			map.setCenter(new google.maps.LatLng(31.640699, -81.166613));
+			theStatue2 = false;
+			thePark2 = false;
+			theWtc2 = true;
+			theRock2 = false;
+			theTimes2 = false;
+			theCh2 = false;
+		}
+		if (event.position >= 82 && event.position < 125 && theRock2 == false) {
+			infowindow.setContent(locations[3][0]);
+			infowindow.open(map,rock);
+			map.setZoom(15);
+			map.setCenter(new google.maps.LatLng(31.691502, -81.146975));
+			theStatue2 = false;
+			thePark2 = false;
+			theWtc2 = false;
+			theRock2 = true;
+			theTimes2 = false;
+			theCh2 = false;
+		}
+		if (event.position >= 126 && event.position < 162 && theTimes2 == false) {
+			infowindow.setContent(locations[4][0]);
+			infowindow.open(map,times);
+			map.setZoom(15);
+			map.setCenter(new google.maps.LatLng(31.575341, -81.183667));
+			theStatue2 = false;
+			thePark2 = false;
+			theWtc2 = false;
+			theRock2 = false;
+			theTimes2 = true;
+			theCh2 = false;
+		}
+		if (event.position >= 162 && event.position < 200 && theCh2 == false) {
+			infowindow.setContent(locations[5][0]);
+			infowindow.open(map,ch);
+			map.setZoom(15);
+			map.setCenter(new google.maps.LatLng(31.631679, -81.131213));
+			theStatue2 = false;
+			thePark2 = false;
+			theWtc2 = false;
+			theRock2 = false;
+			theTimes2 = false;
+			theCh2 = true;
+		}
+	});
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(31.624625, -81.160325),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+		  if(locations[i][0] == "Test 1"){
+			jwplayer().seek(25);
+		  }
+		  if(locations[i][0] == "Test 2"){
+			jwplayer().seek(36);
+		  }
+		  if(locations[i][0] == "Test 3"){
+			jwplayer().seek(53);
+		  }
+		  if(locations[i][0] == "Test 4"){
+			jwplayer().seek(82);
+		  }
+		  if(locations[i][0] == "Test 5"){
+			jwplayer().seek(126);
+		  }
+		  if(locations[i][0] == "Test 6"){
+			jwplayer().seek(163);
+		  }
+        }
+      })(marker, i));
+    }
+  </script>
+  <script>
+	var hasPlayed = false;
+
+	jwplayer().onBeforePlay(function(event) {
+		if(hasPlayed == false){
+			ga('send', 'event', 'Video', 'Play');
+			hasPlayed = true;
+		}
+	});
+	</script>
+</body>
+</html>
